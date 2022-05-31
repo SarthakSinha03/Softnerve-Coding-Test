@@ -1,1 +1,48 @@
-Code upload kar dunga
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Question1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s =new Scanner(System.in);
+		System.out.println("Question 1 : Leader in the Array");
+		System.out.println("Enter number of elements");
+		int n=s.nextInt();
+		if(n==0) {
+			return;
+		}
+		int arr[]=new int[n];
+		System.out.println("Enter the elements");
+		for(int i=0;i<n;i++) {
+			arr[i]=s.nextInt();
+		}
+		ArrayList<Integer> ans=new ArrayList<Integer>(n);
+		ans=list(arr,n);
+		for(int i=0;i<ans.size();i++){
+		    System.out.print(ans.get(i)+" ");
+		}
+	}
+	
+	public static ArrayList<Integer> list(int arr[], int n){
+		ArrayList<Integer> ans=new ArrayList<Integer>(n);
+        
+		if(n==1){
+		    ans.add(arr[0]);
+		    return ans;
+		}
+		 int max=arr[n-1];
+		 ans.add(max);
+		    for(int i=n-2;i>=0;i--){
+		        if(max<arr[i]){
+		            max=arr[i];
+		            ans.add(arr[i]);
+		        }
+		    }
+		    Collections.reverse(ans);
+		    return ans;
+	}
+
+}
+
