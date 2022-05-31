@@ -1,1 +1,34 @@
-hfjfjv
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Question1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Question 2 :Best Time to Buy and Sell Stock");
+		Scanner s =new Scanner(System.in);
+		System.out.println("Enter number of days");
+		int n=s.nextInt();
+		int arr[]=new int[n];
+		
+		for(int i=0;i<n;i++){
+			System.out.println("Enter price for day"+(i+1));
+		    arr[i]=s.nextInt();
+		}
+		int dif=arr[1]-arr[0];
+		for(int i=0;i<n-1;i++){
+		    for(int j=i+1;j<n;j++){
+		        if(dif<(arr[j]-arr[i])){
+		            dif=arr[j]-arr[i];
+		        }
+		    }
+		}
+		if(dif<0){
+		    System.out.println(0);
+		}
+		else
+		System.out.println("Answer= "+dif);
+	}
+
+}
